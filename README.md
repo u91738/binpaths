@@ -1,11 +1,11 @@
 # binpaths
-Use Angr to find execution paths that lead to a certain symbol or address in the binary,
+Use `angr` to find execution paths that lead to a certain symbol or address in the binary,
 then print the paths, or export the relevant part of control flow graph to GraphML file.
 If the binary is built with debug, pass `--src-dir=... --ctx-lines=3` to get (somewhat) relevant source for each step when printing paths.
 Can be used with executables, dynamic and static libraries. Only tested on Linux.
 
 ## Usage
-```shell
+```
 $ ./binpaths.py --help
 usage: binpaths.py [-h] --entry ENTRY --step STEP [--avoid AVOID] [--avoid-re AVOID_RE]
                    [--src-dir SRC_DIR] [--src-glob SRC_GLOB] [--ctx-lines CTX_LINES] [--demangle]
@@ -145,6 +145,7 @@ $ ./binpaths.py --entry=main --step='main([+].*)?' --step='mbedtls_cipher_set_pa
 
 ```
 
-Binpaths does no layout or rendering of the graph, but you can use Gephi to open / rearrange GraphML files.
-Output graph in Gephi
+Binpaths does no layout or rendering of the graph, but you can use [gephi](https://github.com/gephi/gephi) to open / rearrange GraphML files.
+
+Output graph in [gephi](https://github.com/gephi/gephi)
 ![CFG](examples/mbedtls_example.png)
